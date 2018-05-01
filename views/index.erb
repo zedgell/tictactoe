@@ -1,6 +1,38 @@
 <html>
-  <body>
+<body>
+
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '785600084968023',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v2.12'
+      });
+      
+      FB.AppEvents.logPageView(); 
+
+      FB.GetLoginStatus(function(response) {
+        if (response.status === 'connected') {
+          document.getElementById('status').innerhtml = 'we are connected';
+        }; else if (response.status === 'not_authorized') {
+          document.getElementById('status').innerhtml = 'we are not logged in'
+        } 
+      };  
+      
+    };
+
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "https://connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+
     <h2>Tic-Tac-Toe</h2>
+    <div id="status"></div>
     <form method='post' action='/game'>
       <h4>Game mode:</h4>
       <input type='radio' id='cpu' value='cpu' name='mode' checked>Human vs CPU</input>
