@@ -17,6 +17,14 @@
     <% elsif @game.size == '4x4' %>
       <%= '<h3>4x4</h3>' %>
     <% end %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("#a1p").click(function(){
+        $("#a1p").hide();
+    });
+  });
+  </script>
 
     <table id='grid'>
       <tr>
@@ -31,7 +39,7 @@
       <form method='post' action='/game/move' >
       <tr>
         <td>1</td>
-        <td id='a1'><input type="radio" name="grid_position" id="grid_position" value="A1"> <%= @game.grid['a1'] %> </td>
+        <td id='a1'><input type="radio" name="grid_position" id="a1p" value="A1"> <%= @game.grid['a1'] %> </td>
         <td id='b1'><input type="radio" name="grid_position" id="grid_position" value="B1"> <%= @game.grid['b1'] %> </td>
         <td id='c1'><input type="radio" name="grid_position" id="grid_position" value="C1"> <%= @game.grid['c1'] %> </td>
         <% if @game.grid['d1'] %>
