@@ -1,5 +1,5 @@
 <html>
-<body>
+<body background="/images/tictactoe.gif">>
 
   <script>
     window.fbAsyncInit = function() {
@@ -30,13 +30,20 @@
        fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
   </script>
-
-    <h2>Tic-Tac-Toe</h2>
-    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
-    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0&appId=785600084968023&autoLogAppEvents=1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    
+    <h2 style="color:red">Tic-Tac-Toe</h2>
+    <div class="fb-login-button" data-width="200" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="true" data-use-continue-as="true"></div>
     <form method='post' action='/game'>
-      <h4>Game mode:</h4>
-      <input type='radio' id='cpu' value='cpu' name='mode' checked>Human vs CPU</input>
+      <h4 style="color:green"><font size="20">Game mode:</font></h4>
+      <input style="color:green" type='radio' id='cpu' value='cpu' name='mode' checked>Human vs CPU</input>
       </br>
       <input type='radio' id='human' value='human' name='mode'>Human vs Human</input>
       </br>
