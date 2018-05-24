@@ -1,8 +1,9 @@
 <html>
+<link rel="stylesheet" href="/css/background.css">
 <style>
 .center {
     text-align: center;
-    border: 3px solid green;
+    border: 3px;
 }
 </style>
 <style>
@@ -11,24 +12,31 @@ div.center {
 }
 </style>
   <body >>
+  <div class="box1">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  </div>
+  <div class="box2">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  </div>  
+  <div class="box3">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  </div>
+  <div class="box4">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
     <div class="center">
       <h1>Tic-Tac-Toe</h1>
-      <% if @game.mode == 'human' %>
-        <%= '<h3>Human vs Human. Fight!</h3>' %>
-          <% if @game.turn == @game.player_2 %>
-            <%= '<h4>Player 2 Turn</h4>' %>
-          <% else %>
-            <%= '<h4>Player 1 Turn</h4>' %>
-          <% end %>
-      <% elsif @game.mode == 'cpu' %>
-        <%= '<h3>Human vs CPU. Good luck!</h3>' %>
-      <% end %>
-
-      <% if @game.size == '3x3' %>
-        <%= '<h3>3x3</h3>' %>
-      <% elsif @game.size == '4x4' %>
-        <%= '<h3>4x4</h3>' %>
-      <% end %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
   $(document).ready(function(){
@@ -154,12 +162,7 @@ div.center {
           <% end %>
         </table>
     </br>
-        <input type="submit" name="play" value="submit">
       </form>
-
-    <%= @game.message %>
-    <% if @player_move && !@player_move.empty? %>
-      <%= "Your input was #{@player_move.upcase}." %>
-    <% end %>
+    </div>
   </body>
 </html>

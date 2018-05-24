@@ -1,11 +1,35 @@
 <html>
+<link rel="stylesheet" href="/css/background.css">
 <style>
 .center {
     text-align: center;
     border: 3px solid green;
 }
 </style>
-  <body background="/images/tictactoe.gif">
+  <body>
+  <div class="box1">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  </div>
+  <div class="box2">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  </div>  
+  <div class="box3">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
+  </div>
+  <div class="box4">
+  <span></span>
+  <span></span>
+  <span></span>
+  <span></span>
       <div class="center">
         <h2 style="color:red">Result</h2>
         <%= @result %>
@@ -65,6 +89,7 @@
             <source src="/audio/lose.mp3" type="audio/mpeg">
           </audio>
         <% end %>
+  </div>
 
   </body>
 </html>
