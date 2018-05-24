@@ -5,7 +5,12 @@
     border: 3px solid green;
 }
 </style>
-  <body background="/images/tictactoe.gif">>
+<style>
+div.center {
+    font-size: 150%;
+}
+</style>
+  <body >>
     <div class="center">
       <h1>Tic-Tac-Toe</h1>
       <% if @game.mode == 'human' %>
@@ -32,9 +37,11 @@
     });
   });
   </script>
+  <script src="js/onclick.js"></script>
 
       <div class="center">
-        <table id='grid' align="center">
+        <link rel="stylesheet" href="/css/test.css">
+        <table id='grid' align="center" background="/images/board2.jpg" style="width:400px;height:500px;" border="10" bordercolor="black">
           <tr>
             <td> </td>
             <td>A</td>
@@ -44,30 +51,96 @@
               <td>D</td>
             <% end %>
           </tr>
-          <form method='post' action='/game/move' >
+          <form method='post' action='/game/move' id="move" >
           <tr>
+
+            <font size="2" face="Courier New" >
             <td>1</td>
-            <td id='a1'><input type="radio" name="grid_position" id="a1p" value="A1"> <%= @game.grid['a1'] %> </td>
-            <td id='b1'><input type="radio" name="grid_position" id="grid_position" value="B1"> <%= @game.grid['b1'] %> </td>
-            <td id='c1'><input type="radio" name="grid_position" id="grid_position" value="C1"> <%= @game.grid['c1'] %> </td>
+            <td id='a1'><input type="hidden" name="a1" value ="<%= @game.grid['a1'] %>" >
+                <% if @game.grid['a1'] == "O" %>
+                    O
+                  <% elsif @game.grid['a1'] == "X" %>
+                    X
+                <% else %>
+                  <input type="submit" name="grid_position" id="grid_position" value="A1" style="color: red; width:100%;height:100%;background-color: red"> <%= @game.grid['a1'] %> </td>
+                <% end %>
+            </font>
+            <td id='b1'><input type="hidden" name="b1" value ="<%= @game.grid['b1'] %>" >
+                <% if @game.grid['b1'] == "O" %>
+                    O
+                  <% elsif @game.grid['b1'] == "X" %>
+                    X
+                <% else %>
+                  <input type="submit" name="grid_position" id="grid_position" value="B1" style="color: red; width:100%;height:100%;background-color: red"> <%= @game.grid['b1'] %> </td>
+                <% end %>
+            <td id='c1'><input type="hidden" name="c1" value ="<%= @game.grid['c1'] %>" >
+                <% if @game.grid['c1'] == "O" %>
+                    O
+                  <% elsif @game.grid['c1'] == "X" %>
+                    X
+                <% else %>
+                  <input type="submit" name="grid_position" id="grid_position" value="C1" style="color: red; width:100%;height:100%;background-color: red"> <%= @game.grid['c1'] %> </td>
+                <% end %>
             <% if @game.grid['d1'] %>
               <td id='d1'><input type="radio" name="grid_position" id="grid_position" value="D1"> <%= "#{@game.grid['d1']} </td>" %>
             <% end %>
           </tr>
           <tr>
             <td>2</td>
-            <td id='a2'><input type="radio" name="grid_position" id="grid_position" value="A2"> <%= @game.grid['a2'] %> </td>
-            <td id='b2'><input type="radio" name="grid_position" id="grid_position" value="B2"> <%= @game.grid['b2'] %> </td>
-            <td id='c2'><input type="radio" name="grid_position" id="grid_position" value="C2"> <%= @game.grid['c2'] %> </td>
+            <td id='a2'><input type="hidden" name="a1" value ="<%= @game.grid['a2'] %>" >
+                <% if @game.grid['a2'] == "O" %>
+                    O
+                  <% elsif @game.grid['a2'] == "X" %>
+                    X
+                <% else %>
+                  <input type="submit" name="grid_position" id="grid_position" value="A2" style="color: red; width:100%;height:100%;background-color: red"> <%= @game.grid['a2'] %> </td>
+                <% end %>
+            <td id='b2'><input type="hidden" name="b2" value ="<%= @game.grid['b2'] %>" >
+                <% if @game.grid['b2'] == "O" %>
+                    O
+                  <% elsif @game.grid['b2'] == "X" %>
+                    X
+                <% else %>
+                  <input type="submit" name="grid_position" id="grid_position" value="B2" style="color: red; width:100%;height:100%;background-color: red"> <%= @game.grid['b2'] %> </td>
+                <% end %>
+            <td id='c2'><input type="hidden" name="c2" value ="<%= @game.grid['c2'] %>" >
+                <% if @game.grid['c2'] == "O" %>
+                    O
+                  <% elsif @game.grid['c2'] == "X" %>
+                    X
+                <% else %>
+                  <input type="submit" name="grid_position" id="grid_position" value="C2" style="color: red; width:100%;height:100%;background-color: red"> <%= @game.grid['c2'] %> </td>
+                <% end %>
             <% if @game.grid['d2'] %>
               <td id='d2'><input type="radio" name="grid_position" id="grid_position" value="D2"> <%= "#{@game.grid['d2']} </td>" %>
             <% end %>
           </tr>
           <tr>
-            <td>3</td>
-            <td id='a3'><input type="radio" name="grid_position" id="grid_position" value="A3"> <%= @game.grid['a3'] %> </td>
-            <td id='b3'><input type="radio" name="grid_position" id="grid_position" value="B3"> <%= @game.grid['b3'] %> </td>
-            <td id='c3'><input type="radio" name="grid_position" id="grid_position" value="C3"> <%= @game.grid['c3'] %> </td>
+            <td>1</td>
+            <td id='a3'><input type="hidden" name="a3" value ="<%= @game.grid['a3'] %>" >
+                <% if @game.grid['a3'] == "O" %>
+                    O
+                  <% elsif @game.grid['a3'] == "X" %>
+                    X
+                <% else %>
+                  <input type="submit" name="grid_position" id="grid_position" value="A3" style="color: red; width:100%;height:100%;background-color: red"> <%= @game.grid['a3'] %> </td>
+                <% end %>
+            <td id='b3'><input type="hidden" name="b3" value ="<%= @game.grid['b3'] %>" >
+                <% if @game.grid['b3'] == "O" %>
+                    O
+                  <% elsif @game.grid['b3'] == "X" %>
+                    X
+                <% else %>
+                  <input type="submit" name="grid_position" id="grid_position" value="B3" style="color: red; width:100%;height:100%;background-color: red"> <%= @game.grid['b3'] %> </td>
+                <% end %>
+            <td id='c3'><input type="hidden" name="c3" value ="<%= @game.grid['c3'] %>" >
+                <% if @game.grid['c3'] == "O" %>
+                    O
+                  <% elsif @game.grid['c3'] == "X" %>
+                    X
+                <% else %>
+                  <input type="submit" name="grid_position" id="grid_position" value="C3" style="color: red; width:100%;height:100%;background-color: red"> <%= @game.grid['c3'] %> </td>
+                <% end %>
             <% if @game.grid['d3'] %>
               <td id='d3'><input type="radio" name="grid_position" id="grid_position" value="D3" <%= "#{@game.grid['d3']} </td>" %>
             <% end %>

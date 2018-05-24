@@ -1,0 +1,30 @@
+.buttons
+{
+overflow:auto;
+text-align: center;
+font-size: 1.0em;
+font-weight: bold;
+line-height: 200%;
+
+}
+
+.buttons a
+{
+display: inline-block;
+width: 18em;
+height: 6em;
+margin-bottom: 0.5em;
+padding-top: .6em;
+padding-bottom: .6em;
+color: #fff;
+background-color: #aaabbb;
+border-radius: 5px;
+border: solid #cccccc 1px;
+box-shadow: 2px 2px 1px #888888;
+clear:right;
+float:right;
+}
+
+.buttons a:active
+{
+box-shad

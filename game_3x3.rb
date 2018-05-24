@@ -37,7 +37,10 @@ class Game3x3
       get_player_input(position)
       switch_turns
       human_results
-    elsif @mode == 'cpu'
+    elsif @mode == 'cpu' 
+      get_player_input(position)
+      cpu_results
+    elsif @mode == 'easy'
       get_player_input(position)
       cpu_results
     end
@@ -73,12 +76,22 @@ class Game3x3
     end
   end
 
+  def av_spaces
+    av =[]
+    @grid.each_index do |ndx|
+      av_spaces << ndx if @grid[ndx].nill?
+    end
+    av_spaces
+  end
+
   def get_player_input(position)
     if valid_move?(position)
       @grid[position.downcase] = @turn
       @message = 'Movement accepted.'
       if @mode == 'cpu'
         cpu_turn
+      elsif @mode == 'easy'
+        easy_turn
       end
     elsif valid_position_format?(position)
       @message = 'Invalid input. That position is taken.'
@@ -86,6 +99,11 @@ class Game3x3
       @message = 'Invalid input. That is not a valid position.'
     end
   end
+
+  
+
+
+
 
   def valid_move?(position)
     (valid_position_format?(position)) && (@grid[position.downcase] == ' ')
@@ -119,6 +137,16 @@ class Game3x3
     (@grid[win_condition[0]] == mark) && (@grid[win_condition[1]] == mark) && (@grid[win_condition[2]] == mark)
   end
 
+  def easy_turn
+    win  = cpu_check_for_win(@cpu)
+    loss = cpu_check_for_win(@player_1)
+
+    move_easy
+  end
+        
+        
+        
+
   def cpu_turn
     win  = cpu_check_for_win(@cpu)
     loss = cpu_check_for_win(@player_1)
@@ -140,6 +168,8 @@ class Game3x3
     end
   end
 
+  
+
   def cpu_check_for_win(mark)
     move = nil
     WIN_CONDITIONS.each do |condition|
@@ -155,6 +185,9 @@ class Game3x3
       end
     end
     return move
+  end
+  def move_easy
+    find_empty_position
   end
 
   def start_of_game?
