@@ -83,7 +83,15 @@
       <!-- <input type='radio' id='4x4' value='4x4' name='size'>4x4</input> -->
       </br>
       <!-- </br> -->
-      <input type='submit' value='Start' />
+      <input type='submit' value='Start' id="submit" />
+      <script>
+      document.addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode === 13) {
+              document.getElementById("submit").click();
+          }
+      });
+      </script>
     </div>
     </form>
   </body>
