@@ -46,7 +46,7 @@ div.center {
     });
   });
   </script>
-  <script src="js/onclick.js"></script>
+ 
 
       <div class="center">
         <link rel="stylesheet" href="/css/test.css">
@@ -125,7 +125,7 @@ div.center {
             <% end %>
           </tr>
           <tr>
-            <td>1</td>
+            <td>3</td>
             <td id='a3'><input type="hidden" name="a3" value ="<%= @game.grid['a3'] %>" >
                 <% if @game.grid['a3'] == "O" %>
                     O
@@ -195,6 +195,34 @@ div.center {
             document.getElementById("c3p").click();
           }
       });
+      </script>
+      <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+      <script>
+      if (annyang) {
+        // Let's define a command.
+        var commands = {
+          'a1': function() { document.getElementById("a1p1").click(); },
+          'b1': function() { document.getElementById("b1p").click(); },
+          'c1': function() { document.getElementById("c1p").click(); },
+          'a2': function() { document.getElementById("a2p").click(); },
+          'b2': function() { document.getElementById("b2p").click(); },
+          'c2': function() { document.getElementById("c2p").click(); },
+          'a3': function() { document.getElementById("a3p").click(); },
+          'b3': function() { document.getElementById("b3p").click(); },
+          'c3': function() { document.getElementById("c3p").click(); }
+        };
+
+        document.addEventListener("keyup", function(event) {
+          event.preventDefault();
+          if (event.keyCode === 13) {
+            annyang.start();
+          }
+        });
+        annyang.addCommands(commands);
+
+        
+        
+      }
       </script>
     </div>
   </body>
